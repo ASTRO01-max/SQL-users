@@ -1,4 +1,6 @@
 import asyncio
+import logging
+import sys
 import re
 
 from aiogram import Bot, Dispatcher, types
@@ -8,7 +10,7 @@ from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import StatesGroup, State
 from database import add_user_to_database
 
-TOKEN = "8047767402:AAFTQqDBCSW70gImz9VZR6HW4zk77oW9FAc"
+TOKEN = "YOUR TOKEN"
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
