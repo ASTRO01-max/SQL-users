@@ -1,7 +1,7 @@
 import psycopg2
 
 def add_user_to_database(user_data: dict):
-    conn = psycopg2.connect("dbname='SQL_DBname' user='SQL password' password='SQL password'") 
+    conn = psycopg2.connect("dbname='SQL_DBname' user='SQL_User' password='SQL_Password'") 
     cur = conn.cursor()
 
     cur.execute("""
@@ -21,4 +21,3 @@ def add_user_to_database(user_data: dict):
     conn.commit()
     cur.close()
     conn.close()
-
