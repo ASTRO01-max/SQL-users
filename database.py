@@ -1,7 +1,7 @@
 import psycopg2
 
 def add_user_to_database(user_data: dict):
-    conn = psycopg2.connect("dbname='SQL_DBname' user='SQL_User' password='SQL_Password'") 
+    conn = psycopg2.connect("dbname=bot user=postgres password=1234") 
     cur = conn.cursor()
 
     cur.execute("""

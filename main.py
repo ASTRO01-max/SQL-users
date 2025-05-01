@@ -11,6 +11,7 @@ from aiogram.fsm.state import StatesGroup, State
 from database import add_user_to_database
 
 TOKEN = "YOUR_BOT_TOKEN"
+
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
 
@@ -53,7 +54,7 @@ async def help_tel(message: types.Message):
 
 @dp.message(CommandStart())
 async def cmd_start(message: types.Message, state: FSMContext):
-    await message.answer("👋 Salom! Ismingizni kiriting:")
+    await message.answer("👋 Salom! 👤Ismingizni kiriting:")
     await state.set_state(UserForm.ism)
 
 @dp.message(Command("cancel"))
@@ -67,7 +68,7 @@ async def process_ism(message: types.Message, state: FSMContext):
         await send_help_message(message, "ism")
         return
     await state.update_data(ism=message.text.strip())
-    await message.answer("Familiyangizni kiriting:")
+    await message.answer("👤Familiyangizni kiriting:")
     await state.set_state(UserForm.fam)
 
 @dp.message(StateFilter(UserForm.fam))
@@ -76,7 +77,7 @@ async def process_fam(message: types.Message, state: FSMContext):
         await send_help_message(message, "fam")
         return
     await state.update_data(fam=message.text.strip())
-    await message.answer("Telefon raqamingizni kiriting:")
+    await message.answer("📞Telefon raqamingizni kiriting:")
     await state.set_state(UserForm.tel_nomer)
 
 @dp.message(StateFilter(UserForm.tel_nomer))
@@ -92,7 +93,7 @@ async def process_tel(message: types.Message, state: FSMContext):
     await message.answer(
         "✅ Ma'lumotlaringiz saqlandi!\n"
         f"👤 Ism: {data['ism']}\n"
-        f"👨 Familiya: {data['fam']}\n"
+        f"👤 Familiya: {data['fam']}\n"
         f"📞 Telefon: {data['tel_nomer']}\n\n"
         "🔄 Qayta ro'yxatdan o'tish uchun /start ni bosing."
     )
