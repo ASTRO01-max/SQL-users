@@ -11,7 +11,6 @@ from aiogram.fsm.state import StatesGroup, State
 from database import add_user_to_database
 
 TOKEN = "YOUR_BOT_TOKEN"
-
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
 
@@ -22,9 +21,9 @@ class UserForm(StatesGroup):
 
 async def send_help_message(message: types.Message, state_name: str):
     helps = {
-        "ism": "Ismingizni kiriting (faqat harflar): Masalan: Muhammad",
-        "fam": "Familiyangizni kiriting (faqat harflar): Masalan: G'aybullayev",
-        "tel_nomer": "Telefon raqamingizni kiriting: Masalan: +998991234567"
+        "ism": "Ismingizni kiriting (faqat harflardan iborat bo'lsin): Masalan: Muhammad Yusuf",
+        "fam": "Familiyangizni kiriting (faqat harflardan iborat bo'lsin): Masalan: G'aybullayev",
+        "tel_nomer": "Telefon raqamingizni kiriting: Masalan: +998998071134"
     }
     await message.answer(helps.get(state_name, "Yordam: Ma'lumotni to'g'ri kiriting!"))
 
